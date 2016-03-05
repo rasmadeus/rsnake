@@ -1,5 +1,12 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>Button.qml</file>
+        <file>MainMenu.qml</file>
+        <file>GameActivity.qml</file>
+        <file>GameArea.qml</file>
+        <file>AboutActivity.qml</file>
+        <file>AboutArea.qml</file>
+        <file>AboutMenu.qml</file>
     </qresource>
 </RCC>
