@@ -7,39 +7,73 @@ ApplicationWindow {
     height: 480
     title: qsTr("RSnake")
 
-    AboutActivity {
-        id: aboutActivity
+    Item {
+        id: activities
         anchors.fill: parent
 
-        onGameClicked: {
-            z = 0
-            gameActivity.z = 1
+        GameActivity {
+             id: gameActivity
+             x: parent.x
+             y: parent.y
+             width: parent.width
+             height: parent.height
+
+             onStartClicked: {
+
+             }
+
+             onStopClicked: {
+
+             }
+
+             onAboutClicked: {
+                 activities.state = "aboutActivity"
+             }
+
+             onExitClicked: {
+                 Qt.quit()
+             }
         }
 
-        onExitClicked: {
-            Qt.quit()
+        AboutActivity {
+            id: aboutActivity
+            x: parent.x
+            y: parent.x - parent.height
+            width: parent.width
+            height: parent.height
+
+
+            onGameClicked: {
+                activities.state = ""
+            }
+
+            onExitClicked: {
+                Qt.quit()
+            }
         }
-    }
 
-    GameActivity {
-         id: gameActivity
-         anchors.fill: parent
+        states: [
+            State {
+                name: "aboutActivity"
+                 PropertyChanges {
+                     target: aboutActivity
+                     y: activities.y
+                 }
+                 PropertyChanges {
+                     target: gameActivity
+                     y: activities.height
+                 }
+            }
+        ]
 
-         onStartClicked: {
-
-         }
-
-         onStopClicked: {
-
-         }
-
-         onAboutClicked: {
-             z = 0
-             aboutActivity.z = 1
-         }
-
-         onExitClicked: {
-             Qt.quit()
-         }
+        transitions: [
+            Transition {
+                 NumberAnimation {
+                     properties: "y"
+                     duration: 3000
+                     easing.type: Easing.InOutBack
+                 }
+            }
+        ]
     }
 }
