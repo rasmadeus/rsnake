@@ -97,5 +97,11 @@ Rectangle {
         }
     }
 
+    Image {
+        id: floor
+        anchors.fill: parent
+        source: "floor.png"
+    }
+
     color: "#dddddd"
 }

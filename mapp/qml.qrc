@@ -14,5 +14,6 @@
         <file>butterfly.png</file>
         <file>rabbit.png</file>
         <file>bear.png</file>
+        <file>floor.png</file>
     </qresource>
 </RCC>
