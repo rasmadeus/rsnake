@@ -1,6 +1,8 @@
 import QtQuick 2.0
 
 Item {
+    property alias isPause: menu.isPause
+
     signal startClicked()
     signal stopClicked()
     signal aboutClicked()
@@ -12,6 +14,10 @@ Item {
 
     function createPreys() {
         gameArea.createPreys()
+    }
+
+    function destroyPreys() {
+        gameArea.destroyPreys()
     }
 
     MainMenu {

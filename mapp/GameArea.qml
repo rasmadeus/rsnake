@@ -41,13 +41,19 @@ Rectangle {
 
     function createPreys() {
         var numberOfPreys = 15
-
         for(var i = 0; i < numberOfPreys; ++i) {
             var component = Qt.createComponent("Prey.qml");
             if (component.status === Component.Ready) {
                 _createPrey(component)
             }
         }
+    }
+
+    function destroyPreys() {
+        for(var i = 0; i < _preys.length; ++i) {
+            _preys[i].destroy()
+        }
+        _preys = []
     }
 
     function _isPosFree(xPos, yPos, indexExclude) {

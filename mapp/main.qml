@@ -12,19 +12,32 @@ ApplicationWindow {
         anchors.fill: parent
 
         GameActivity {
+             property bool _isInit: false
+
              id: gameActivity
              x: parent.x
              y: parent.y
              width: parent.width
-             height: parent.height
+             height: parent.height                
 
              onStartClicked: {
-                gameActivity.createPreys()
-                gameTimer.start()
+                if (!_isInit) {
+                    gameActivity.createPreys()
+                    _isInit = true
+                }
+                if (gameActivity.isPause) {
+                    gameTimer.stop()
+                }
+                else {
+                    gameTimer.start()
+                }
              }
 
-             onStopClicked: {
+             onStopClicked: {                 
                 gameTimer.stop()
+                gameActivity.destroyPreys()
+                gameActivity.isPause = true
+                _isInit = false
              }
 
              onAboutClicked: {

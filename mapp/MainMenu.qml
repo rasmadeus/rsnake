@@ -1,6 +1,8 @@
 import QtQuick 2.0
 
 Item {
+    property alias isPause: startPause._isPause
+
     signal startClicked()
     signal stopClicked()
     signal aboutClicked()
@@ -11,9 +13,11 @@ Item {
 
         Button {
             id: startPause
-            caption: qsTr("Start")
+            property bool _isPause: true
+            caption: _isPause ? qsTr("Start") : qsTr("Pause")
             width: parent.width / 4
             height: parent.height
+            onClicked: _isPause = !_isPause
         }
         Button {
             id: stop
