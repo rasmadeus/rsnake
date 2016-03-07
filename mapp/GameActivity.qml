@@ -6,6 +6,14 @@ Item {
     signal aboutClicked()
     signal exitClicked()
 
+    function step() {
+        gameArea.step()
+    }
+
+    function createPreys() {
+        gameArea.createPreys()
+    }
+
     MainMenu {
         id: menu
 

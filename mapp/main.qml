@@ -19,14 +19,16 @@ ApplicationWindow {
              height: parent.height
 
              onStartClicked: {
-
+                gameActivity.createPreys()
+                gameTimer.start()
              }
 
              onStopClicked: {
-
+                gameTimer.stop()
              }
 
              onAboutClicked: {
+                 gameTimer.stop()
                  activities.state = "aboutActivity"
              }
 
@@ -75,5 +77,13 @@ ApplicationWindow {
                  }
             }
         ]
+    }
+
+    Timer {
+        id: gameTimer
+        interval: 100
+        repeat: true
+        running: false
+        onTriggered: gameActivity.step()
     }
 }

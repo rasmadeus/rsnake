@@ -8,5 +8,11 @@
         <file>AboutActivity.qml</file>
         <file>AboutArea.qml</file>
         <file>AboutMenu.qml</file>
+        <file>Prey.qml</file>
+        <file>cat.png</file>
+        <file>dog.png</file>
+        <file>butterfly.png</file>
+        <file>rabbit.png</file>
+        <file>bear.png</file>
     </qresource>
 </RCC>
