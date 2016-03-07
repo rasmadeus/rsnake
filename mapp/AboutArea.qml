@@ -3,15 +3,43 @@ import QtQuick.Particles 2.0
 
 Rectangle {
     color: "#999999"
+
     Text {
-        anchors.fill: parent
-        text: qsTr("RSnake v 1.0 <br /><a href=\"https://github.com/rasmadeus/rsnake\">Source code of this application is here</a><br />Contacts - rasmadeus@gmail.com")
-        wrapMode: Text.WordWrap
+        id: version
+        text: qsTr("RSnake version 1.0")
         font.bold: true
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
         font.pixelSize: 15
-        onLinkActivated: Qt.openUrlExternally(link)
+        anchors.top: parent.top
+        anchors.horizontalCenter: parent.horizontalCenter
+    }
 
+    Text {
+        id: contacts
+        text: qsTr("Contacts: rasmadeus@gmail.com")
+        font.bold: true
+        verticalAlignment: Text.AlignVCenter
+        horizontalAlignment: Text.AlignHCenter
+        font.pixelSize: 15
+        anchors.top: version.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
+    }
+
+    Text {
+        id: sourceCodeLink
+        text: qsTr("Source code of this application is here")
+        font.bold: true
+        font.pixelSize: 15
+        color: mouse.containsMouse ? "#aa0000" : "#0000aa"
+        anchors.top: contacts.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
+
+        MouseArea {
+            id: mouse
+            anchors.fill: parent
+            hoverEnabled: true
+            onClicked: Qt.openUrlExternally("https://github.com/rasmadeus/rsnake")
+        }
     }
 }
