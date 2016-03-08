@@ -44,6 +44,7 @@ ApplicationWindow {
              }
 
              onAboutClicked: {
+                 gameActivity.isPause = true
                  gameTimer.stop()
                  scoreVisible = true
                  activities.state = "aboutActivity"
