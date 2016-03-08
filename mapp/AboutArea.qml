@@ -2,7 +2,13 @@ import QtQuick 2.0
 import QtQuick.Particles 2.0
 
 Rectangle {
-    color: "#999999"
+    property string _colorText: "#333333"
+    property string _allocatedText: "#000000"
+
+    Image {
+        anchors.fill: parent
+        source: "hay.png"
+    }
 
     Text {
         id: version
@@ -11,8 +17,9 @@ Rectangle {
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
         font.pixelSize: 15
-        anchors.top: parent.top
+        anchors.bottom: contacts.top
         anchors.horizontalCenter: parent.horizontalCenter
+        color: _colorText
     }
 
     Text {
@@ -22,8 +29,8 @@ Rectangle {
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
         font.pixelSize: 15
-        anchors.top: version.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.centerIn: parent
+        color: _colorText
     }
 
     Text {
@@ -31,7 +38,7 @@ Rectangle {
         text: qsTr("Source code of this application is here")
         font.bold: true
         font.pixelSize: 15
-        color: mouse.containsMouse ? "#aa0000" : "#0000aa"
+        color: mouse.containsMouse ? _allocatedText : _colorText
         anchors.top: contacts.bottom
         anchors.horizontalCenter: parent.horizontalCenter
 

@@ -27,9 +27,11 @@ ApplicationWindow {
                 }
                 if (gameActivity.isPause) {
                     gameTimer.stop()
+                    scoreVisible = true
                 }
                 else {
                     gameTimer.start()
+                    scoreVisible = false
                 }
              }
 
@@ -38,10 +40,12 @@ ApplicationWindow {
                 gameActivity.destroyPreys()
                 gameActivity.isPause = true
                 _isInit = false
+                 scoreVisible = true
              }
 
              onAboutClicked: {
                  gameTimer.stop()
+                 scoreVisible = true
                  activities.state = "aboutActivity"
              }
 

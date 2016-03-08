@@ -1,6 +1,7 @@
 import QtQuick 2.0
 
 Rectangle {
+    property int score: 0
     property var _preys: []
 
     function step() {
@@ -95,7 +96,7 @@ Rectangle {
             if (!_preysContain(xPos, yPos)) {
                 var preyIndex = _getRandomInt(0, preySprites.length)
                 var step = _getRandomInt(1, 5)
-                var prey = component.createObject(parent, {x: xPos, y: yPos, side: preySide, step: step, sprite: preySprites[preyIndex]});
+                var prey = component.createObject(parent, {x: xPos, y: yPos, z: 0, side: preySide, step: step, sprite: preySprites[preyIndex]});
                 _setDirection(prey)
                 _preys.push(prey)
                 break
