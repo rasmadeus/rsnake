@@ -16,5 +16,6 @@
         <file>bear.png</file>
         <file>floor.png</file>
         <file>hay.png</file>
+        <file>SnakePart.qml</file>
     </qresource>
 </RCC>

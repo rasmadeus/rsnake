@@ -21,6 +21,10 @@ Item {
         gameArea.destroyPreys()
     }
 
+    function createSnake() {
+        gameArea.createSnake()
+    }
+
     MainMenu {
         id: menu
 

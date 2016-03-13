@@ -3,7 +3,7 @@ import QtQuick 2.0
 Item {
     property alias sprite: sprite.source
     property int side: 40
-    property int stepDuration: 100
+    property int stepDuration: 200
     property int direction: 0
     property int step: 1
 
@@ -46,6 +46,11 @@ Item {
     }
 
     Behavior on x {
+        NumberAnimation {
+            duration: stepDuration
+        }
+    }
+    Behavior on y {
         NumberAnimation {
             duration: stepDuration
         }

@@ -22,7 +22,8 @@ ApplicationWindow {
 
              onStartClicked: {
                 if (!_isInit) {
-                    gameActivity.createPreys()
+                    gameActivity.createSnake()
+                    gameActivity.createPreys()                    
                     _isInit = true
                 }
                 if (gameActivity.isPause) {
@@ -99,7 +100,7 @@ ApplicationWindow {
 
     Timer {
         id: gameTimer
-        interval: 100
+        interval: 200
         repeat: true
         running: false
         onTriggered: gameActivity.step()
