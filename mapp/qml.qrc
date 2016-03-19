@@ -17,5 +17,8 @@
         <file>floor.png</file>
         <file>hay.png</file>
         <file>SnakePart.qml</file>
+        <file>Creature.qml</file>
+        <file>Snake.qml</file>
+        <file>Preys.qml</file>
     </qresource>
 </RCC>

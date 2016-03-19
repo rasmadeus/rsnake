@@ -13,16 +13,16 @@ Item {
         gameArea.step()
     }
 
-    function createPreys() {
-        gameArea.createPreys()
+    function build() {
+        gameArea.build()
     }
 
-    function destroyPreys() {
-        gameArea.destroyPreys()
+    function kill() {
+        gameArea.kill()
     }
 
-    function createSnake() {
-        gameArea.createSnake()
+    function setStepDuration(value) {
+        gameArea.setStepDuration(value)
     }
 
     MainMenu {

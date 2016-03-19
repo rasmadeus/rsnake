@@ -22,8 +22,8 @@ ApplicationWindow {
 
              onStartClicked: {
                 if (!_isInit) {
-                    gameActivity.createSnake()
-                    gameActivity.createPreys()                    
+                    gameActivity.build()
+                    gameActivity.setStepDuration(gameTimer.interval)
                     _isInit = true
                 }
                 if (gameActivity.isPause) {
@@ -38,7 +38,7 @@ ApplicationWindow {
 
              onStopClicked: {                 
                 gameTimer.stop()
-                gameActivity.destroyPreys()
+                gameActivity.kill()
                 gameActivity.isPause = true
                 _isInit = false
                  scoreVisible = true
