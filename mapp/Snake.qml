@@ -1,8 +1,19 @@
 import QtQuick 2.0
 
 Item {
-    property int direction: 2
+    property int _direction: 2
     property var _body: []
+
+    function changeDirection(mouse) {
+        var headX = _body[_body.length - 1].x
+        var headY = _body[_body.length - 1].y
+        switch(_direction) {
+            case 0:
+            case 2: _direction = mouse.x < headX ? 3 : 1; break;
+            case 1:
+            case 3: _direction = mouse.y < headY ? 0 : 2; break;
+        }
+    }
 
     function setStepDuration(value) {
         for(var i = 0; i < _body.length; ++i) {
@@ -43,11 +54,11 @@ Item {
                 _body.push(snakePart)
             }
         }
-        direction = 2
+        _direction = 2
     }
 
     function move() {
-        switch(direction) {
+        switch(_direction) {
             case 0: _moveUp(); break;
             case 1: _moveRight(); break;
             case 2: _moveDown(); break;

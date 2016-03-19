@@ -27,16 +27,7 @@ Rectangle {
     MouseArea {
         anchors.fill: parent
         acceptedButtons: Qt.LeftButton
-        onClicked: {
-            var snakeX = snake.head().x
-            var snakeY = snake.head().y
-            switch(snake.direction) {
-                case 0:
-                case 2: snake.direction = mouse.x < snakeX ? 3 : 1; break;
-                case 1:
-                case 3: snake.direction = mouse.y < snakeY ? 0 : 2; break;
-            }
-        }
+        onClicked: snake.changeDirection(mouse)
     }
 
     Image {
