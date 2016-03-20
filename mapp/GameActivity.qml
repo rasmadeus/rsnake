@@ -5,6 +5,7 @@ Item {
     property alias scoreVisible: score.visible
     property alias score: gameArea.score
 
+    signal allPreysWasEaten()
     signal snakeOutOfBound()
     signal startClicked()
     signal stopClicked()
@@ -61,5 +62,6 @@ Item {
         menu.aboutClicked.connect(aboutClicked)
         menu.exitClicked.connect(exitClicked)
         gameArea.snakeOutOfBound.connect(snakeOutOfBound)
+        gameArea.allPreysWasEaten.connect(allPreysWasEaten)
     }
 }

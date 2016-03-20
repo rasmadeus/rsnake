@@ -3,6 +3,10 @@ import QtQuick 2.0
 Item {
     property var _preys: []
 
+    function isEmpty() {
+        return _preys.length === 0
+    }
+
     function setStepDuration(value) {
         for (var i = 0; i < _preys.length; ++i) {
             _preys[i].stepDuration = value
@@ -59,7 +63,7 @@ Item {
     }
 
     function build(snake) {
-        var numberOfPreys = 15
+        var numberOfPreys = 2
         for(var i = 0; i < numberOfPreys; ++i) {
             var component = Qt.createComponent("Prey.qml")
             if (component.status === Component.Ready) {

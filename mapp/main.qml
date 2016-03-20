@@ -13,13 +13,14 @@ ApplicationWindow {
 
         GameActivity {
             property bool _isInit: false
+            property bool _toNextLevel: false
 
             function _stop() {
                 gameTimer.stop()
                 gameActivity.kill()
                 gameActivity.isPause = true
                 _isInit = false
-                 scoreVisible = true
+                scoreVisible = true
             }
 
              id: gameActivity
@@ -30,10 +31,15 @@ ApplicationWindow {
 
              onStartClicked: {
                 if (!_isInit) {
+                    console.log(_toNextLevel)
+                    if (!_toNextLevel) {
+                        gameActivity.score = 0
+                        gameTimer.interval = 200
+                    }
+                    _toNextLevel = false
                     gameActivity.build()
                     gameActivity.setStepDuration(gameTimer.interval)
                     _isInit = true
-                    gameActivity.score = 0
                 }
                 if (gameActivity.isPause) {
                     gameTimer.stop()
@@ -62,6 +68,13 @@ ApplicationWindow {
 
              onSnakeOutOfBound: {
                 _stop()
+             }
+
+             onAllPreysWasEaten: {
+                 _stop()
+                 gameTimer.interval = Math.max(50, gameTimer.interval - 50)
+                 _toNextLevel = true
+                 console.log("ger")
              }
         }
 
