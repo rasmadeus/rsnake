@@ -3,6 +3,9 @@ import QtQuick 2.0
 Item {
     property int _direction: 2
     property var _body: []
+    property int _xTail: 0
+    property int _yTail: 0
+    property int _stepDuration: 100
 
     function changeDirection(mouse) {
         var headX = _body[_body.length - 1].x
@@ -16,13 +19,10 @@ Item {
     }
 
     function setStepDuration(value) {
+        _stepDuration = value
         for(var i = 0; i < _body.length; ++i) {
             _body[i].stepDuration = value
         }
-    }
-
-    function head() {
-        return _body[_body.length - 1]
     }
 
     function contains(x, y, width, height) {
@@ -57,6 +57,15 @@ Item {
         _direction = 2
     }
 
+    function grow() {
+        var snakeSize = 15
+        var component = Qt.createComponent("SnakePart.qml")
+        if (component.status === Component.Ready) {
+            var snakePart = component.createObject(parent, {x: _xTail, y: _yTail, width: snakeSize, height: snakeSize, stepDuration: _stepDuration});
+            _body.unshift(snakePart)
+        }
+    }
+
     function move() {
         switch(_direction) {
             case 0: _moveUp(); break;
@@ -64,6 +73,8 @@ Item {
             case 2: _moveDown(); break;
             case 3: _moveLeft(); break;
         }
+        _xTail = _body[0].x
+        _yTail = _body[0].y
     }
 
     function _moveUp() {

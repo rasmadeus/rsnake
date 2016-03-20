@@ -9,6 +9,16 @@ Item {
         }
     }
 
+    function muster(snake) {
+        for(var i = 0; i < _preys.length; ++i) {
+            if (snake.contains(_preys[i].x, _preys[i].y, _preys[i].width, _preys[i].height)) {
+                snake.grow()
+                _preys[i].destroy()
+                _preys.splice(i, 1)
+            }
+        }
+    }
+
     function move() {
         for(var i = 0; i < _preys.length; ++i) {
             var xPos = _preys[i].getNextX()

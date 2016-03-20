@@ -2,7 +2,6 @@ import QtQuick 2.0
 
 Rectangle {
     property int score: 0
-    property var _preys: []
 
     function setStepDuration(value) {
         snake.setStepDuration(value)
@@ -11,6 +10,7 @@ Rectangle {
 
     function step() {
         snake.move()
+        preys.muster(snake)
         preys.move()
     }
 
