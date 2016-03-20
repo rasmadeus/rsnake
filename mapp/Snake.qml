@@ -12,6 +12,10 @@ Item {
     }
 
     function changeDirection(mouse) {
+        if (!_body.length) {
+            return
+        }
+
         var headPart = head()
         var headX = headPart.x
         var headY = headPart.y
@@ -56,7 +60,6 @@ Item {
         var isAbletoEatPart = 3
         for(var i = 0; i < _body.length - isAbletoEatPart; ++i) {
             if (_body[i].contains(snakeHead.x, snakeHead.y, snakeHead.width, snakeHead.height)) {
-                console.log(i)
                 return true
             }
         }
