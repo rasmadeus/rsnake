@@ -1,8 +1,6 @@
 import QtQuick 2.0
 
-Rectangle {
-    color: "transparent"
-
+Item {
     property int stepDuration: 100
 
     function contains(x2, y2, width2, height2) {

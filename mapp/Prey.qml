@@ -2,7 +2,6 @@ import QtQuick 2.0
 
 Creature {
     property alias sprite: sprite.source
-    property int side: 40
     property int direction: 0
     property int step: 1
 
@@ -21,9 +20,6 @@ Creature {
             default: return y
         }
     }
-
-    width: side
-    height: side
 
     Image {
         id: sprite

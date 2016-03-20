@@ -49,7 +49,7 @@ Item {
         for(var i = 0; i < snakeLength; ++i) {
             var component = Qt.createComponent("SnakePart.qml")
             if (component.status === Component.Ready) {
-                var snakePart = component.createObject(parent, {x: xPos, y: yPos});
+                var snakePart = component.createObject(parent, {x: xPos, y: yPos, width: snakeSize, height: snakeSize});
                 yPos += snakeSize
                 _body.push(snakePart)
             }

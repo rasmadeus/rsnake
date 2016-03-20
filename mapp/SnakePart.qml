@@ -1,8 +1,12 @@
 import QtQuick 2.0
 
 Creature {
-    width: 15
-    height: 15
-    color: "#000000"
-    radius: 7
+    Rectangle  {
+        color: "#000000"
+        width: 0.95 * parent.width
+        height: width
+        anchors.centerIn: parent
+        radius: width * 0.5
+
+    }
 }

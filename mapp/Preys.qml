@@ -15,16 +15,16 @@ Item {
             var yPos = _preys[i].getNextY()
             var changeDirection = false
 
-            if (xPos > width - _preys[i].side) {
-                xPos = width - _preys[i].side
+            if (xPos > width - _preys[i].width) {
+                xPos = width - _preys[i].width
                 changeDirection = true
             }
             else if (xPos < x) {
                 xPos = x
                 changeDirection = true
             }
-            else if (yPos > height) {
-                yPos = height
+            else if (yPos > height - _preys[i].height) {
+                yPos = height - _preys[i].height
                 changeDirection = true
             }
             else if (yPos < y) {
@@ -96,7 +96,7 @@ Item {
             if (!_contains(xPos, yPos, preySide, preySide) && !snake.contains(xPos, yPos, preySide, preySide)) {
                 var preyIndex = _getRandomInt(0, preySprites.length)
                 var step = _getRandomInt(velocityMin, velocityMax)
-                var prey = component.createObject(parent, {x: xPos, y: yPos, z: 0, side: preySide, step: step, sprite: preySprites[preyIndex]});
+                var prey = component.createObject(parent, {x: xPos, y: yPos, z: 0, width: preySide, height: preySide, step: step, sprite: preySprites[preyIndex]});
                 _setDirection(prey)
                 _preys.push(prey)
                 break
