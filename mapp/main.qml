@@ -12,7 +12,15 @@ ApplicationWindow {
         anchors.fill: parent
 
         GameActivity {
-             property bool _isInit: false
+            property bool _isInit: false
+
+            function _stop() {
+                gameTimer.stop()
+                gameActivity.kill()
+                gameActivity.isPause = true
+                _isInit = false
+                 scoreVisible = true
+            }
 
              id: gameActivity
              x: parent.x
@@ -25,6 +33,7 @@ ApplicationWindow {
                     gameActivity.build()
                     gameActivity.setStepDuration(gameTimer.interval)
                     _isInit = true
+                    gameActivity.score = 0
                 }
                 if (gameActivity.isPause) {
                     gameTimer.stop()
@@ -37,11 +46,7 @@ ApplicationWindow {
              }
 
              onStopClicked: {                 
-                gameTimer.stop()
-                gameActivity.kill()
-                gameActivity.isPause = true
-                _isInit = false
-                 scoreVisible = true
+                _stop()
              }
 
              onAboutClicked: {
@@ -53,6 +58,10 @@ ApplicationWindow {
 
              onExitClicked: {
                  Qt.quit()
+             }
+
+             onSnakeOutOfBound: {
+                _stop()
              }
         }
 

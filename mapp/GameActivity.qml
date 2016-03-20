@@ -3,7 +3,9 @@ import QtQuick 2.0
 Item {
     property alias isPause: menu.isPause
     property alias scoreVisible: score.visible
+    property alias score: gameArea.score
 
+    signal snakeOutOfBound()
     signal startClicked()
     signal stopClicked()
     signal aboutClicked()
@@ -58,5 +60,6 @@ Item {
         menu.stopClicked.connect(stopClicked)
         menu.aboutClicked.connect(aboutClicked)
         menu.exitClicked.connect(exitClicked)
+        gameArea.snakeOutOfBound.connect(snakeOutOfBound)
     }
 }

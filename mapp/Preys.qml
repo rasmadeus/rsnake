@@ -10,13 +10,16 @@ Item {
     }
 
     function muster(snake) {
+        var score = 0
         for(var i = 0; i < _preys.length; ++i) {
             if (snake.contains(_preys[i].x, _preys[i].y, _preys[i].width, _preys[i].height)) {
+                score += _preys[i].step
                 snake.grow()
                 _preys[i].destroy()
                 _preys.splice(i, 1)
             }
         }
+        return score
     }
 
     function move() {

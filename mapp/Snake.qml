@@ -7,9 +7,14 @@ Item {
     property int _yTail: 0
     property int _stepDuration: 100
 
+    function head() {
+        return _body[_body.length - 1]
+    }
+
     function changeDirection(mouse) {
-        var headX = _body[_body.length - 1].x
-        var headY = _body[_body.length - 1].y
+        var headPart = head()
+        var headX = headPart.x
+        var headY = headPart.y
         switch(_direction) {
             case 0:
             case 2: _direction = mouse.x < headX ? 3 : 1; break;
@@ -39,6 +44,23 @@ Item {
             _body[i].destroy()
         }
         _body = []
+    }
+
+    function isOutOf(x, y, width, height) {
+        var snakeHead = head()
+        return snakeHead.x < x || snakeHead.x + snakeHead.width > width || snakeHead.y < y || snakeHead.y + snakeHead.height > height
+    }
+
+    function eatSelf() {
+        var snakeHead = head()
+        var isAbletoEatPart = 3
+        for(var i = 0; i < _body.length - isAbletoEatPart; ++i) {
+            if (_body[i].contains(snakeHead.x, snakeHead.y, snakeHead.width, snakeHead.height)) {
+                console.log(i)
+                return true
+            }
+        }
+        return false
     }
 
     function build() {

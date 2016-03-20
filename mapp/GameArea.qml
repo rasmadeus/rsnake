@@ -2,6 +2,7 @@ import QtQuick 2.0
 
 Rectangle {
     property int score: 0
+    signal snakeOutOfBound()
 
     function setStepDuration(value) {
         snake.setStepDuration(value)
@@ -10,9 +11,10 @@ Rectangle {
 
     function step() {
         snake.move()
-        preys.muster(snake)
+        _checkSnakePos()
+        score += preys.muster(snake)
         preys.move()
-    }
+    }    
 
     function build() {
         snake.build()
@@ -22,6 +24,12 @@ Rectangle {
     function kill() {
         snake.kill()
         preys.kill()
+    }
+
+    function _checkSnakePos() {
+        if (snake.eatSelf() || snake.isOutOf(x, y, width, height)) {
+            snakeOutOfBound()
+        }
     }
 
     MouseArea {
