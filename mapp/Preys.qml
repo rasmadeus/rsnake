@@ -63,7 +63,7 @@ Item {
     }
 
     function build(snake) {
-        var numberOfPreys = 2
+        var numberOfPreys = 15
         for(var i = 0; i < numberOfPreys; ++i) {
             var component = Qt.createComponent("Prey.qml")
             if (component.status === Component.Ready) {

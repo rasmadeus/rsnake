@@ -31,10 +31,10 @@ ApplicationWindow {
 
              onStartClicked: {
                 if (!_isInit) {
-                    console.log(_toNextLevel)
                     if (!_toNextLevel) {
                         gameActivity.score = 0
                         gameTimer.interval = 200
+                        level = 1
                     }
                     _toNextLevel = false
                     gameActivity.build()
@@ -72,9 +72,9 @@ ApplicationWindow {
 
              onAllPreysWasEaten: {
                  _stop()
-                 gameTimer.interval = Math.max(50, gameTimer.interval - 50)
                  _toNextLevel = true
-                 console.log("ger")
+                 level += 1
+                 gameTimer.interval = Math.max(50, gameTimer.interval - 30)
              }
         }
 

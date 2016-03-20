@@ -11,13 +11,12 @@ Rectangle {
     }
 
     function step() {
-        snake.move()
-        if (_hasSnakeInvalidPos()) {
-            return
+        if (!_hasSnakeInvalidPos()) {
+            score += preys.muster(snake)
+            snake.move()
+            _checkPreysCount()
+            preys.move()
         }
-        score += preys.muster(snake)
-        _checkPreysCount()
-        preys.move()
     }    
 
     function build() {
@@ -31,7 +30,7 @@ Rectangle {
     }
 
     function _hasSnakeInvalidPos() {
-        if (snake.eatSelf() || snake.isOutOf(x, y, width, height)) {
+        if (snake.eatSelf() || snake.isOutOf(x, 0, width, height)) {
             snakeOutOfBound()
             return true
         }

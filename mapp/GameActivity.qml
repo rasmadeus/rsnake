@@ -4,6 +4,7 @@ Item {
     property alias isPause: menu.isPause
     property alias scoreVisible: score.visible
     property alias score: gameArea.score
+    property int level: 1
 
     signal allPreysWasEaten()
     signal snakeOutOfBound()
@@ -54,6 +55,17 @@ Item {
         font.pointSize: 20
         color: "#222222"
         z: 1
+    }
+    Text {
+        id: levelText
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: score.bottom
+        text: qsTr("Level №%1").arg(level)
+        font.bold: true
+        font.pointSize: 15
+        color: "#222222"
+        z: 1
+        visible: scoreVisible
     }
 
     Component.onCompleted: {
