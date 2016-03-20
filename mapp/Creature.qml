@@ -2,6 +2,7 @@ import QtQuick 2.0
 
 Item {
     property int stepDuration: 100
+    property alias sprite: sprite.source
 
     function contains(x2, y2, width2, height2) {
         return _contains(x, x2, width, width2) && _contains(y, y2, height, height2)
@@ -18,6 +19,11 @@ Item {
     function move(xPos, yPos) {
         x = xPos
         y = yPos
+    }
+
+    Image {
+        id: sprite
+        anchors.fill: parent
     }
 
     Behavior on x {

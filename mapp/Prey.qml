@@ -1,7 +1,6 @@
 import QtQuick 2.0
 
 Creature {
-    property alias sprite: sprite.source
     property int direction: 0
     property int step: 1
 
@@ -19,11 +18,5 @@ Creature {
             case 3: return y - step
             default: return y
         }
-    }
-
-    Image {
-        id: sprite
-        anchors.fill: parent
-        source: "cat.png"
     }
 }

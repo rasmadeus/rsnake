@@ -24,7 +24,7 @@ Rectangle {
 
     Text {
         id: contacts
-        text: qsTr("Contacts: rasmadeus@gmail.com")
+        text: qsTr("Author's contact: rasmadeus@gmail.com")
         font.bold: true
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
