@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import QtGraphicalEffects 1.0
 
 Rectangle {
     property int score: 0
@@ -31,9 +32,21 @@ Rectangle {
 
     function _hasSnakeInvalidPos() {
         if (snake.eatSelf() || snake.isOutOf(x, 0, width, height)) {
-            snakeOutOfBound()
-            return true
+            snake.killHead()
+            if (snake.isDead()) {
+                snakeOutOfBound()
+                dangerNotificator.opacity = 0.0
+                return true
+            }
+            else {
+                score = Math.max(0, score - 50)
+                dangerNotificator.opacity = 1.0
+            }
         }
+        else {
+            dangerNotificator.opacity = 0.0
+        }
+
         return false
     }
 
@@ -63,5 +76,15 @@ Rectangle {
     Preys {
         id: preys
         anchors.fill: parent
+    }
+
+    Text {
+        id: dangerNotificator
+        anchors.centerIn: parent
+        text: qsTr("!")
+        font.bold: true
+        font.pixelSize: parent.height / 2
+        color: "#000000"
+        opacity: 0.0
     }
 }

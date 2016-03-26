@@ -31,6 +31,7 @@ Item {
             duration: stepDuration
         }
     }
+
     Behavior on y {
         NumberAnimation {
             duration: stepDuration

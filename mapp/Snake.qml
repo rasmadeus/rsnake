@@ -50,6 +50,15 @@ Item {
         _body = []
     }
 
+    function killHead() {
+        head().destroy()
+        _body.splice(_body.length - 1, 1)
+    }
+
+    function isDead() {
+        return _body.length < 3
+    }
+
     function isOutOf(x, y, width, height) {
         var snakeHead = head()
         return snakeHead.x < x || snakeHead.x + snakeHead.width > width || snakeHead.y < y || snakeHead.y + snakeHead.height > height
