@@ -16,7 +16,7 @@ Rectangle {
         font.bold: true
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
-        font.pixelSize: 15
+        font.pixelSize: parent.height / 30
         anchors.bottom: contacts.top
         anchors.horizontalCenter: parent.horizontalCenter
         color: _colorText
@@ -28,7 +28,7 @@ Rectangle {
         font.bold: true
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
-        font.pixelSize: 15
+        font.pixelSize: parent.height / 30
         anchors.centerIn: parent
         color: _colorText
     }
@@ -37,7 +37,7 @@ Rectangle {
         id: sourceCodeLink
         text: qsTr("Source code of this application is here")
         font.bold: true
-        font.pixelSize: 15
+        font.pixelSize: parent.height / 30
         color: mouse.containsMouse ? _allocatedText : _colorText
         anchors.top: contacts.bottom
         anchors.horizontalCenter: parent.horizontalCenter

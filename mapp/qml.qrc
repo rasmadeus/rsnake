@@ -21,5 +21,6 @@
         <file>Snake.qml</file>
         <file>Preys.qml</file>
         <file>head.png</file>
+        <file>icon.png</file>
     </qresource>
 </RCC>

@@ -63,7 +63,7 @@ Item {
     }
 
     function build(snake) {
-        var numberOfPreys = 15
+        var numberOfPreys = 25
         for(var i = 0; i < numberOfPreys; ++i) {
             var component = Qt.createComponent("Prey.qml")
             if (component.status === Component.Ready) {
@@ -101,7 +101,7 @@ Item {
 
     function _buildPrey(component, snake) {
         var preySprites = ["bear.png", "butterfly.png", "cat.png", "dog.png", "rabbit.png"]
-        var preySide = 40
+        var preySide = parent.height / 10
         var numberOfAttempts = 10
 
         for(var i = 0; i < numberOfAttempts; ++i) {

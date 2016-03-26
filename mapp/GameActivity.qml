@@ -36,7 +36,7 @@ Item {
         anchors.left: parent.left
         anchors.right: parent.right
 
-        height: 40
+        height: parent.height / 10
     }
 
     GameArea {
@@ -52,7 +52,7 @@ Item {
         anchors.centerIn: parent
         text: qsTr("Your score: %1").arg(gameArea.score)
         font.bold: true
-        font.pointSize: 20
+        font.pixelSize: parent.height / 20
         color: "#222222"
         z: 1
     }
@@ -62,7 +62,7 @@ Item {
         anchors.top: score.bottom
         text: qsTr("Level №%1").arg(level)
         font.bold: true
-        font.pointSize: 15
+        font.pixelSize: parent.height / 18
         color: "#222222"
         z: 1
         visible: scoreVisible

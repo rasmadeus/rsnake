@@ -67,7 +67,7 @@ Item {
     }
 
     function build() {
-        var snakeSize = 15
+        var snakeSize = parent.height / 20
         var snakeLength = 5
         var xPos = (parent.width - parent.x - 5) / 2
         var yPos = y
@@ -83,7 +83,7 @@ Item {
     }
 
     function grow() {
-        var snakeSize = 15
+        var snakeSize = parent.height / 20
         var component = Qt.createComponent("SnakePart.qml")
         if (component.status === Component.Ready) {
             var snakePart = component.createObject(parent, {x: _xTail, y: _yTail, width: snakeSize, height: snakeSize, stepDuration: _stepDuration});

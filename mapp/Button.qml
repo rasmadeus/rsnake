@@ -10,7 +10,7 @@ Rectangle {
         id: caption
         text: qsTr("Button")
         anchors.centerIn: parent
-        font.pointSize: mouse.pressed ? 15 : 10
+        font.pixelSize: mouse.pressed ? parent.height / 2 : parent.height / 3
         font.bold: true
         color: mouse.pressed ? "#bbbbbb" : "#999999"
     }

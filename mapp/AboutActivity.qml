@@ -11,7 +11,7 @@ Item {
         anchors.left: parent.left
         anchors.right: parent.right
 
-        height: 40
+        height: parent.height / 10
     }
 
     AboutArea {
