@@ -74,7 +74,7 @@ ApplicationWindow {
                  _stop()
                  _toNextLevel = true
                  level += 1
-                 gameTimer.interval = Math.max(50, gameTimer.interval - 30)
+                 gameTimer.interval = Math.max(10, gameTimer.interval - 30)
              }
         }
 
