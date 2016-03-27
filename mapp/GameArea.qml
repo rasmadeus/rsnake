@@ -21,8 +21,9 @@ Rectangle {
     }    
 
     function build() {
+        var numberOfPreys = 25
         snake.build()
-        preys.build(snake)
+        preys.build(snake, numberOfPreys)
     }
 
     function kill() {
@@ -35,18 +36,14 @@ Rectangle {
             snake.killHead()
             if (snake.isDead()) {
                 snakeOutOfBound()
-                dangerNotificator.opacity = 0.0
                 return true
             }
             else {
-                score = Math.max(0, score - 50)
-                dangerNotificator.opacity = 1.0
+                var preysAddition = 1
+                score = Math.max(0, score - 50)                
+                preys.build(snake, preysAddition)
             }
         }
-        else {
-            dangerNotificator.opacity = 0.0
-        }
-
         return false
     }
 
@@ -76,15 +73,5 @@ Rectangle {
     Preys {
         id: preys
         anchors.fill: parent
-    }
-
-    Text {
-        id: dangerNotificator
-        anchors.centerIn: parent
-        text: qsTr("!")
-        font.bold: true
-        font.pixelSize: parent.height / 2
-        color: "#000000"
-        opacity: 0.0
     }
 }

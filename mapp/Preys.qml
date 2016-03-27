@@ -62,8 +62,7 @@ Item {
         }
     }
 
-    function build(snake) {
-        var numberOfPreys = 25
+    function build(snake, numberOfPreys) {
         for(var i = 0; i < numberOfPreys; ++i) {
             var component = Qt.createComponent("Prey.qml")
             if (component.status === Component.Ready) {
@@ -102,14 +101,14 @@ Item {
     function _buildPrey(component, snake) {
         var preySprites = ["bear.png", "butterfly.png", "cat.png", "dog.png", "rabbit.png"]
         var preySide = parent.height / 10
-        var numberOfAttempts = 10
+        var numberOfAttempts = 5
 
         for(var i = 0; i < numberOfAttempts; ++i) {
             var xPos = _getRandomInt(x, x + width - preySide)
             var yPos = _getRandomInt(y, y + height - preySide)
             var direction = _getRandomInt(0, 4)
             var velocityMin = 4
-            var velocityMax = 20
+            var velocityMax = 30
             if (!_contains(xPos, yPos, preySide, preySide) && !snake.contains(xPos, yPos, preySide, preySide)) {
                 var preyIndex = _getRandomInt(0, preySprites.length)
                 var step = _getRandomInt(velocityMin, velocityMax)
