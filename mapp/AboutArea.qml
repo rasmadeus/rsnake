@@ -10,43 +10,48 @@ Rectangle {
         source: "hay.png"
     }
 
-    Text {
-        id: version
-        text: qsTr("RSnake version 1.0")
-        font.bold: true
-        verticalAlignment: Text.AlignVCenter
-        horizontalAlignment: Text.AlignHCenter
-        font.pixelSize: parent.width / 20
-        anchors.bottom: contacts.top
-        anchors.horizontalCenter: parent.horizontalCenter
-        color: _colorText
-    }
-
-    Text {
-        id: contacts
-        text: qsTr("Author's contact: rasmadeus@gmail.com")
-        font.bold: true
-        verticalAlignment: Text.AlignVCenter
-        horizontalAlignment: Text.AlignHCenter
-        font.pixelSize: parent.width / 20
+    Column {
         anchors.centerIn: parent
-        color: _colorText
-    }
+        width: parent.width
 
-    Text {
-        id: sourceCodeLink
-        text: qsTr("Source code of this application is here")
-        font.bold: true
-        font.pixelSize: parent.width / 30
-        color: mouse.containsMouse ? _allocatedText : _colorText
-        anchors.top: contacts.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
+        Text {
+            id: version
+            width: parent.width
+            text: qsTr("RSnake version 1.0")
+            font.bold: true
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignHCenter
+            font.pixelSize: parent.width / 20
+            color: _colorText
+        }
 
-        MouseArea {
-            id: mouse
-            anchors.fill: parent
-            hoverEnabled: true
-            onClicked: Qt.openUrlExternally("https://github.com/rasmadeus/rsnake")
+        Text {
+            id: contacts
+            width: parent.width
+            text: qsTr("Author's contact: rasmadeus@gmail.com")
+            font.bold: true
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignHCenter
+            font.pixelSize: parent.width / 20
+            color: _colorText
+        }
+
+        Text {
+            id: sourceCodeLink
+            width: parent.width
+            text: qsTr("Source code of this application is here")
+            font.bold: true
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignHCenter
+            font.pixelSize: parent.width / 30
+            color: mouse.containsMouse ? _allocatedText : _colorText
+
+            MouseArea {
+                id: mouse
+                anchors.fill: parent
+                hoverEnabled: true
+                onClicked: Qt.openUrlExternally("https://github.com/rasmadeus/rsnake")
+            }
         }
     }
 }
